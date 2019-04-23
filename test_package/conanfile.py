@@ -11,6 +11,7 @@ class TsilTestConan(ConanFile):
         cmake = CMake(self)
         # Current dir is "test_package/build/<build_id>" and CMakeLists.txt is
         # in "test_package"
+        cmake.definitions["CMAKE_POSITION_INDEPENDENT_CODE"] = self.options["TSIL"].fPIC
         cmake.configure()
         cmake.build()
 
@@ -22,4 +23,4 @@ class TsilTestConan(ConanFile):
     def test(self):
         if not tools.cross_building(self.settings):
             os.chdir("bin")
-            self.run(".%sexample" % os.sep)
+            self.run(".%stest_tsil" % os.sep)
