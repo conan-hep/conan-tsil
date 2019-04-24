@@ -23,15 +23,11 @@
 #
 # TSIL::TSIL
 
-message(STATUS "searching for tsil.h in ${CONAN_INCLUDE_DIRS_TSIL}")
-
 # search tsil.h
 find_path(TSIL_INCLUDE_DIRS
   NAMES tsil.h
   PATHS ${CONAN_INCLUDE_DIRS_TSIL}
 )
-
-message(STATUS "searching for tsil lib in ${CONAN_LIB_DIRS_TSIL}")
 
 # search TSIL library
 find_library(TSIL_LIBRARIES
