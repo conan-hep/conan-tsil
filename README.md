@@ -13,7 +13,7 @@ In your `conanfile.txt` file (located in your project directly) add
 the following lines:
 
     [requires]
-    tsil/1.44@conan/stable
+    TSIL/1.44@conan/stable
 
     [generators]
     cmake
