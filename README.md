@@ -1,6 +1,30 @@
 ## Conan package recipe for [*TSIL*](https://www.niu.edu/spmartin/TSIL/)
 
 
+## For Users
+
+### Basic setup
+
+    $ conan install tsil/1.44@conan/stable
+
+### Project setup
+
+In your `conanfile.txt` file (located in your project directly) add
+the following lines:
+
+    [requires]
+    tsil/1.44@conan/stable
+
+    [generators]
+    cmake
+
+Install the dependencies for your project by running:
+
+    mkdir build
+    cd build
+    conan install ..
+
+
 ## Build and package
 
 The following command both runs all the steps of the conan file, and
