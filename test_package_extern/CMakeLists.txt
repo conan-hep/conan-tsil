@@ -6,5 +6,5 @@ conan_basic_setup()
 
 find_package(TSIL REQUIRED)
 
-add_executable(test_tsil test_tsil.cpp)
-target_link_libraries(test_tsil TSIL::TSIL)
+add_executable(test_cmake test_cmake.cpp)
+target_link_libraries(test_cmake TSIL::TSIL)
