@@ -18,6 +18,7 @@ the following lines:
     [generators]
     cmake
     make
+    pkg_config
 
 Install the dependencies for your project by running:
 

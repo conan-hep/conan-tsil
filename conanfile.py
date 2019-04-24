@@ -14,7 +14,7 @@ class TsilConan(ConanFile):
                "TSIL_SIZE": ["TSIL_SIZE_LONG", "TSIL_SIZE_DOUBLE"]}
     exports = ["LICENSE", "FindTSIL.cmake"]
     default_options = "fPIC=True", "TSIL_SIZE=TSIL_SIZE_LONG"
-    generators = ["cmake", "make"]
+    generators = ["cmake", "make", "pkg_config"]
     _source_subfolder = "tsil-{}".format(version)
 
     def source(self):

@@ -1,11 +1,12 @@
 import os
 
-from conans import ConanFile, CMake, tools
+from conans import ConanFile, CMake, Meson, tools
 
 
 class TsilTestConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
-    generators = ["cmake", "make"]
+    generators = ["cmake", "make", "pkg_config"]
+    _meson_dir = "meson-build"
 
     def _build_cmake(self):
         cmake = CMake(self)
@@ -16,11 +17,17 @@ class TsilTestConan(ConanFile):
     def _build_make(self):
         self.run("make -f ..{}..{}Makefile".format(os.sep, os.sep))
 
+    def _build_meson(self):
+        meson = Meson(self)
+        meson.configure(build_folder=self._meson_dir)
+        meson.build()
+
     def build(self):
         # Current dir is "test_package/build/<build_id>" and CMakeLists.txt is
         # in "test_package"
         self._build_cmake()
         self._build_make()
+        self._build_meson()
 
     def imports(self):
         self.copy("*.dll", dst="bin", src="bin")
@@ -29,6 +36,8 @@ class TsilTestConan(ConanFile):
 
     def test(self):
         if not tools.cross_building(self.settings):
-            os.chdir("bin")
-            self.run(".%stest_cmake" % os.sep)
-            self.run(".%stest_make" % os.sep)
+            with tools.chdir("bin"):
+                self.run(".%stest_cmake" % os.sep)
+                self.run(".%stest_make" % os.sep)
+            with tools.chdir(self._meson_dir):
+                self.run(".%stest_meson" % os.sep)
