@@ -7,7 +7,7 @@
 
 TSIL can be installed with conan by running:
 
-    $ conan install tsil/1.44@conan/stable
+    conan install tsil/1.44@conan/stable
 
 Alternatively a `conanfile.txt` file can be created in your project
 directory with the following content:
