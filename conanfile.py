@@ -35,7 +35,7 @@ class TsilConan(ConanFile):
                              " -fPIC" if self.options.fPIC else ""))
 
     def package(self):
-        self.copy("*.h", dst="include", src="hello")
+        self.copy("*.h", dst="include", keep_path=False)
         self.copy("*.lib", dst="lib", keep_path=False)
         self.copy("*.dll", dst="bin", keep_path=False)
         self.copy("*.so", dst="lib", keep_path=False)
