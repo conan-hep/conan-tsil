@@ -7,6 +7,7 @@ class TsilTestConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     generators = ["cmake", "make", "pkg_config"]
     _meson_dir = "meson-build"
+    _make_dir = "make-build"
 
     def _build_cmake(self):
         cmake = CMake(self)
@@ -38,6 +39,7 @@ class TsilTestConan(ConanFile):
         if not tools.cross_building(self.settings):
             with tools.chdir("bin"):
                 self.run(".%stest_cmake" % os.sep)
+            with tools.chdir(self._make_dir):
                 self.run(".%stest_make" % os.sep)
             with tools.chdir(self._meson_dir):
                 self.run(".%stest_meson" % os.sep)
