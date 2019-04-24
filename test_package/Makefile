@@ -12,7 +12,7 @@ $(info SRC_DIR = $(SRC_DIR))
 $(info OBJ_DIR = $(OBJ_DIR))
 $(info BIN_DIR = $(BIN_DIR))
 
-SRC = $(SRC_DIR)/test_make.cpp
+SRC = $(SRC_DIR)/test_tsil.cpp
 OBJ = $(OBJ_DIR)/test_make.o
 EXE = $(BIN_DIR)/test_make
 
