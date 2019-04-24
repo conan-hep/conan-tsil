@@ -24,6 +24,9 @@ Install the dependencies for your project by running:
     cd build
     conan install ..
 
+A complete example can be found in the `test_package_extern/`
+directory.
+
 
 ## Build and package
 
