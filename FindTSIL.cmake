@@ -9,7 +9,8 @@
 #
 # This module reads the following variables:
 #
-# TSIL               - TSIL directory
+# CONAN_INCLUDE_DIRS_TSIL - directory of tsil.h
+# CONAN_LIB_DIRS_TSIL     - directory of libtsil.a
 #
 # This module defines the following variables:
 #
@@ -22,47 +23,29 @@
 #
 # TSIL::TSIL
 
-# search tsil.h first in ${TSIL_DIR}
+message(STATUS "searching for tsil.h in ${CONAN_INCLUDE_DIRS_TSIL}")
+
+# search tsil.h
 find_path(TSIL_INCLUDE_DIRS
   NAMES tsil.h
-  PATHS
-    ${TSIL_DIR}
-  NO_DEFAULT_PATH
-  NO_CMAKE_PATH
-  NO_CMAKE_ENVIRONMENT_PATH
-  NO_SYSTEM_ENVIRONMENT_PATH
-  NO_CMAKE_SYSTEM_PATH
-  NO_CMAKE_FIND_ROOT_PATH
+  PATHS ${CONAN_INCLUDE_DIRS_TSIL}
 )
 
-find_path(TSIL_INCLUDE_DIRS
-  NAMES tsil.h
-)
+message(STATUS "searching for tsil lib in ${CONAN_LIB_DIRS_TSIL}")
 
-# search TSIL library first in ${TSIL_DIR}
+# search TSIL library
 find_library(TSIL_LIBRARIES
   NAMES tsil
-  PATHS
-    ${TSIL_DIR}
-  NO_DEFAULT_PATH
-  NO_CMAKE_PATH
-  NO_CMAKE_ENVIRONMENT_PATH
-  NO_SYSTEM_ENVIRONMENT_PATH
-  NO_CMAKE_SYSTEM_PATH
-  NO_CMAKE_FIND_ROOT_PATH
-)
-
-find_library(TSIL_LIBRARIES
-  NAMES TSIL
+  PATHS ${CONAN_LIB_DIRS_TSIL}
 )
 
 # find version
 if(TSIL_INCLUDE_DIRS)
   file(READ "${TSIL_INCLUDE_DIRS}/tsil.h" _tsil_header)
 
-  string(REGEX MATCH "define[ \t]+TSIL_VERSION[ \t]+\"([0-9]+)\.[0-9]+\"" _tsil_version_major_match "${_tsil_header}")
+  string(REGEX MATCH "define[ \t]+TSIL_VERSION[ \t]+\"([0-9]+)\\.[0-9]+\"" _tsil_version_major_match "${_tsil_header}")
   set(TSIL_VERSION_MAJOR "${CMAKE_MATCH_1}")
-  string(REGEX MATCH "define[ \t]+TSIL_VERSION[ \t]+\"[0-9]+\.([0-9]+)\"" _tsil_version_minor_match "${_tsil_header}")
+  string(REGEX MATCH "define[ \t]+TSIL_VERSION[ \t]+\"[0-9]+\\.([0-9]+)\"" _tsil_version_minor_match "${_tsil_header}")
   set(TSIL_VERSION_MINOR "${CMAKE_MATCH_1}")
 
   set(TSIL_VERSION ${TSIL_VERSION_MAJOR}.${TSIL_VERSION_MINOR})
