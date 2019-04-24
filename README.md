@@ -31,6 +31,12 @@ Afterwards the project can be configured via CMake by running:
     cmake ..
     make
 
+Alternatively the project can be configured with Meson by running:
+
+    export PKG_CONFIG_PATH=.
+    meson ..
+    ninja
+
 A complete example can be found in the `test_package_extern/`
 directory.
 
