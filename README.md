@@ -1,16 +1,16 @@
 ## Conan package recipe for [*TSIL*](https://www.niu.edu/spmartin/TSIL/)
 
 
-## For Users
+## For users
 
-### Basic setup
+### Installation of dependencies
+
+TSIL can be installed with conan by running:
 
     $ conan install tsil/1.44@conan/stable
 
-### Project setup
-
-In your `conanfile.txt` file (located in your project directly) add
-the following lines:
+Alternatively a `conanfile.txt` file can be created in your project
+directory with the following content:
 
     [requires]
     TSIL/1.44@conan/stable
@@ -20,22 +20,30 @@ the following lines:
     make
     pkg_config
 
-Install the dependencies for your project by running:
+The dependencies of your project are then installed by running:
 
     mkdir build
     cd build
     conan install ..
 
-Afterwards the project can be configured via CMake by running:
+### Building your project
+
+Afterwards the project can be configured via CMake and build with
+`make` by running:
 
     cmake ..
     make
 
-Alternatively the project can be configured with Meson by running:
+Alternatively the project can be configured with Meson and build with
+`ninja` by running:
 
     export PKG_CONFIG_PATH=.
     meson ..
     ninja
+
+Alternatively the project can be build with `make` by running:
+
+    make -f ../Makefile
 
 A complete example can be found in the `test_package_extern/`
 directory.
