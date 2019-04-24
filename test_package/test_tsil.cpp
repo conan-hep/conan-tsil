@@ -6,7 +6,7 @@ int main()
    TSIL_DATA data;
    TSIL_REAL x = 1.0, y = 2.0, z = 3.0, u = 4.0, v = 5.0, s = 6.0, qq = 7.0;
 
-   TSIL_SetParameters_(&foo, x, y, z, u, v, qq);
+   TSIL_SetParameters_(&data, x, y, z, u, v, qq);
    TSIL_Evaluate_(&data, s);
 
    const auto M     = TSIL_GetFunction (&data, "M");
