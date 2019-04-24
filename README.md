@@ -45,8 +45,7 @@ Alternatively the project can be build with `make` by running:
 
     make -f ../Makefile
 
-A complete example can be found in the `test_package_extern/`
-directory.
+A complete example can be found in the `examples/` directory.
 
 
 ## Build and package
