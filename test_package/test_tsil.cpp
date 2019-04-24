@@ -9,19 +9,19 @@ int main()
    TSIL_SetParameters_(&data, x, y, z, u, v, qq);
    TSIL_Evaluate_(&data, s);
 
-   const auto M     = TSIL_GetFunction (&data, "M");
-   const auto Uzxyv = TSIL_GetFunction (&data, "Uzxyv");
-   const auto Uuyxv = TSIL_GetFunction (&data, "Uuyxv");
-   const auto Uxzuv = TSIL_GetFunction (&data, "Uxzuv");
-   const auto Uyuzv = TSIL_GetFunction (&data, "Uyuzv");
-   const auto Tvyz  = TSIL_GetFunction (&data, "Tvyz");
-   const auto Tuxv  = TSIL_GetFunction (&data, "Tuxv");
-   const auto Tyzv  = TSIL_GetFunction (&data, "Tyzv");
-   const auto Txuv  = TSIL_GetFunction (&data, "Txuv");
-   const auto Tzyv  = TSIL_GetFunction (&data, "Tzyv");
-   const auto Tvxu  = TSIL_GetFunction (&data, "Tvxu");
-   const auto Svyz  = TSIL_GetFunction (&data, "Svyz");
-   const auto Suxv  = TSIL_GetFunction (&data, "Suxv");
+   const auto M     = TSIL_GetFunction_(&data, "M");
+   const auto Uzxyv = TSIL_GetFunction_(&data, "Uzxyv");
+   const auto Uuyxv = TSIL_GetFunction_(&data, "Uuyxv");
+   const auto Uxzuv = TSIL_GetFunction_(&data, "Uxzuv");
+   const auto Uyuzv = TSIL_GetFunction_(&data, "Uyuzv");
+   const auto Tvyz  = TSIL_GetFunction_(&data, "Tvyz");
+   const auto Tuxv  = TSIL_GetFunction_(&data, "Tuxv");
+   const auto Tyzv  = TSIL_GetFunction_(&data, "Tyzv");
+   const auto Txuv  = TSIL_GetFunction_(&data, "Txuv");
+   const auto Tzyv  = TSIL_GetFunction_(&data, "Tzyv");
+   const auto Tvxu  = TSIL_GetFunction_(&data, "Tvxu");
+   const auto Svyz  = TSIL_GetFunction_(&data, "Svyz");
+   const auto Suxv  = TSIL_GetFunction_(&data, "Suxv");
 
    std::cout << "M     = " << M << '\n'
              << "Uzxyv = " << Uzxyv << '\n'
