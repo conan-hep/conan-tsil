@@ -17,12 +17,18 @@ the following lines:
 
     [generators]
     cmake
+    make
 
 Install the dependencies for your project by running:
 
     mkdir build
     cd build
     conan install ..
+
+Afterwards the project can be configured via CMake by running:
+
+    cmake ..
+    make
 
 A complete example can be found in the `test_package_extern/`
 directory.
