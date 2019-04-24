@@ -45,4 +45,4 @@ class TsilConan(ConanFile):
 
     def package_info(self):
         self.cpp_info.libs = ["tsil"]
-        self.cpp_info.defines = [self.options.TSIL_SIZE]
+        self.cpp_info.defines.append(str(self.options.TSIL_SIZE))
