@@ -16,9 +16,7 @@ class TsilTestConan(ConanFile):
         cmake.build()
 
     def _build_make(self):
-        cmd = "make -f ..{}..{}Makefile".format(os.sep, os.sep)
-
-        self.run("echo 'current directory: ' `pwd`")
+        cmd = "make -f {}{}Makefile".format(self.source_folder, os.sep)
         print(cmd)
         self.run(cmd)
 
@@ -28,8 +26,6 @@ class TsilTestConan(ConanFile):
         meson.build()
 
     def build(self):
-        # Current dir is "test_package/build/<build_id>" and CMakeLists.txt is
-        # in "test_package"
         self._build_cmake()
         self._build_make()
         self._build_meson()
