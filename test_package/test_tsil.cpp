@@ -10,19 +10,19 @@ int main()
    TSIL_SetParameters_(&data, x, y, z, u, v, qq);
    TSIL_Evaluate_(&data, s);
 
-   const auto M     = TSIL_GetFunction_(&data, "M");
-   const auto Uzxyv = TSIL_GetFunction_(&data, "Uzxyv");
-   const auto Uuyxv = TSIL_GetFunction_(&data, "Uuyxv");
-   const auto Uxzuv = TSIL_GetFunction_(&data, "Uxzuv");
-   const auto Uyuzv = TSIL_GetFunction_(&data, "Uyuzv");
-   const auto Tvyz  = TSIL_GetFunction_(&data, "Tvyz");
-   const auto Tuxv  = TSIL_GetFunction_(&data, "Tuxv");
-   const auto Tyzv  = TSIL_GetFunction_(&data, "Tyzv");
-   const auto Txuv  = TSIL_GetFunction_(&data, "Txuv");
-   const auto Tzyv  = TSIL_GetFunction_(&data, "Tzyv");
-   const auto Tvxu  = TSIL_GetFunction_(&data, "Tvxu");
-   const auto Svyz  = TSIL_GetFunction_(&data, "Svyz");
-   const auto Suxv  = TSIL_GetFunction_(&data, "Suxv");
+   const TSIL_COMPLEXCPP M     = TSIL_GetFunction_(&data, "M");
+   const TSIL_COMPLEXCPP Uzxyv = TSIL_GetFunction_(&data, "Uzxyv");
+   const TSIL_COMPLEXCPP Uuyxv = TSIL_GetFunction_(&data, "Uuyxv");
+   const TSIL_COMPLEXCPP Uxzuv = TSIL_GetFunction_(&data, "Uxzuv");
+   const TSIL_COMPLEXCPP Uyuzv = TSIL_GetFunction_(&data, "Uyuzv");
+   const TSIL_COMPLEXCPP Tvyz  = TSIL_GetFunction_(&data, "Tvyz");
+   const TSIL_COMPLEXCPP Tuxv  = TSIL_GetFunction_(&data, "Tuxv");
+   const TSIL_COMPLEXCPP Tyzv  = TSIL_GetFunction_(&data, "Tyzv");
+   const TSIL_COMPLEXCPP Txuv  = TSIL_GetFunction_(&data, "Txuv");
+   const TSIL_COMPLEXCPP Tzyv  = TSIL_GetFunction_(&data, "Tzyv");
+   const TSIL_COMPLEXCPP Tvxu  = TSIL_GetFunction_(&data, "Tvxu");
+   const TSIL_COMPLEXCPP Svyz  = TSIL_GetFunction_(&data, "Svyz");
+   const TSIL_COMPLEXCPP Suxv  = TSIL_GetFunction_(&data, "Suxv");
 
    std::cout << "=========\n"
              << "TSIL " TSIL_VERSION << '\n'
