@@ -1,4 +1,5 @@
 #include <iostream>
+#include <typeinfo>
 #include "tsil_cpp.h"
 
 int main()
@@ -22,6 +23,12 @@ int main()
    const auto Tvxu  = TSIL_GetFunction_(&data, "Tvxu");
    const auto Svyz  = TSIL_GetFunction_(&data, "Svyz");
    const auto Suxv  = TSIL_GetFunction_(&data, "Suxv");
+
+   std::cout << "=========\n"
+             << "TSIL " TSIL_VERSION << '\n'
+             << "=========\n"
+             << "TSIL_REAL = " << typeid(TSIL_REAL).name() << '\n'
+             << "TSIL_COMPLEXCPP = " << typeid(TSIL_COMPLEX).name() << '\n';
 
    std::cout << "M     = " << M << '\n'
              << "Uzxyv = " << Uzxyv << '\n'
