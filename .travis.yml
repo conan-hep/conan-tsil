@@ -12,6 +12,7 @@ env:
      - CONAN_CHANNEL: "channel"
      - CONAN_UPLOAD: "UPLOAD_URL"
      - CONAN_PIP_INSTALL: "meson"
+     - CONAN_ARCHS: x86_64
 
 linux: &linux
    os: linux
