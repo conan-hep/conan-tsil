@@ -12,7 +12,6 @@ env:
      - CONAN_CHANNEL: "channel"
      - CONAN_UPLOAD: "UPLOAD_URL"
      - CONAN_PIP_INSTALL: "meson"
-     - CONAN_BUILD_REQUIRES: "ninja_installer/1.9.0@bincrafters/stable"
 
 linux: &linux
    os: linux
@@ -27,9 +26,6 @@ osx: &osx
    language: generic
 matrix:
    include:
-
-      - <<: *linux
-        env: CONAN_GCC_VERSIONS=4.9 CONAN_DOCKER_IMAGE=conanio/gcc49
 
       - <<: *linux
         env: CONAN_GCC_VERSIONS=5 CONAN_DOCKER_IMAGE=conanio/gcc5
