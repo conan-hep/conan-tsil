@@ -16,7 +16,19 @@ class TsilTestConan(ConanFile):
         cmake.build()
 
     def _build_make(self):
-        cmd = "make -f {}{}Makefile".format(self.source_folder, os.sep)
+        march = ''
+
+        if self.settings.arch == 'x86':
+            march = '-m32'
+        elif self.settings.arch == 'x86_64':
+            march = '-m64'
+
+        cxxflags = march
+
+        cmd = "make CXXFLAGS='{}' -f {}{}Makefile".format(
+            cxxflags,
+            self.source_folder,
+            os.sep)
         print(cmd)
         self.run(cmd)
 
