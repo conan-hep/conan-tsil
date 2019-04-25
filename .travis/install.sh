@@ -24,7 +24,4 @@ pip install conan --upgrade
 pip install conan_package_tools
 pip install meson
 
-locate meson
-which meson
-
 conan user
