@@ -24,6 +24,4 @@ pip install conan --upgrade
 pip install conan_package_tools
 pip install meson
 
-export PATH="${PATH}:$(dirname $(which meson))"
-
 conan user
