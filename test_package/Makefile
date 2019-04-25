@@ -4,7 +4,7 @@ include conanbuildinfo.mak
 
 CUR_DIR := $(shell pwd)
 SRC_DIR := $(patsubst %/,%,$(dir $(MKFILE)))
-OBJ_DIR := make-build
+OBJ_DIR := make-build/obj
 BIN_DIR := make-build
 
 $(info CUR_DIR = $(CUR_DIR))
