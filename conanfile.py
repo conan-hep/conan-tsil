@@ -30,18 +30,18 @@ class TsilConan(ConanFile):
 
     def build(self):
         with tools.chdir(self._source_subfolder):
-            march = 'native'
+            march = '-march=native'
 
             if self.settings.arch == 'x86':
-                march = 'i686'
+                march = '-m32'
             elif self.settings.arch == 'x86_64':
-                march = 'x86-64'
+                march = '-m64'
 
-            cmd = "make CC='{}' TSIL_SIZE='-D{}' TSIL_OPT='-O3 -march={}{}'".format(
+            cmd = "make CC='{}' TSIL_SIZE='-D{}' TSIL_OPT='-O3 {} {}'".format(
                 self.settings.compiler,
                 self.options.TSIL_SIZE,
                 march,
-                " -fPIC" if self.options.fPIC else "")
+                "-fPIC" if self.options.fPIC else "")
 
             print(cmd)
             self.run(cmd)
