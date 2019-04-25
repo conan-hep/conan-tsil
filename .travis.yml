@@ -2,7 +2,7 @@ addons:
    apt:
       update: true
       packages:
-         - ninja
+         - ninja-build
          - meson
 
 env:
