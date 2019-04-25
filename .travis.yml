@@ -11,6 +11,7 @@ env:
      - CONAN_LOGIN_USERNAME: "user"
      - CONAN_CHANNEL: "channel"
      - CONAN_UPLOAD: "UPLOAD_URL"
+     - CONAN_PIP_INSTALL: "meson"
 
 linux: &linux
    os: linux
