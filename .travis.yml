@@ -3,7 +3,6 @@ addons:
       update: true
       packages:
          - ninja-build
-         - meson
 
 env:
    global:
