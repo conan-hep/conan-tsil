@@ -30,7 +30,7 @@ class TsilConan(ConanFile):
 
     def build(self):
         with tools.chdir(self._source_subfolder):
-            march = '-march=native'
+            march = ''
 
             if self.settings.arch == 'x86':
                 march = '-m32'
