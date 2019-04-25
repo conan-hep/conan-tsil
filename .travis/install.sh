@@ -20,8 +20,8 @@ if [[ "$(uname -s)" == 'Darwin' ]]; then
     pyenv activate conan
 fi
 
-pip install conan --upgrade
-pip install conan_package_tools
-pip install meson
+pip3 install conan --upgrade
+pip3 install conan_package_tools
+pip3 install meson
 
 conan user
