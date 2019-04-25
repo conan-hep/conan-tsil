@@ -1,3 +1,5 @@
+[![Build Status Travis](https://travis-ci.org/conan-hep/conan-tsil.svg)](https://travis-ci.org/conan-hep/conan-tsil)
+
 ## Conan package recipe for [*TSIL*](https://www.niu.edu/spmartin/TSIL/)
 
 
