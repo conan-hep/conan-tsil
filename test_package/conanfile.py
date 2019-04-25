@@ -16,7 +16,11 @@ class TsilTestConan(ConanFile):
         cmake.build()
 
     def _build_make(self):
-        self.run("make -f ..{}..{}Makefile".format(os.sep, os.sep))
+        cmd = "make -f ..{}..{}Makefile".format(os.sep, os.sep)
+
+        self.run("echo 'current directory: ' `pwd`")
+        print(cmd)
+        self.run(cmd)
 
     def _build_meson(self):
         meson = Meson(self)
