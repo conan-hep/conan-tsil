@@ -12,6 +12,7 @@ env:
      - CONAN_CHANNEL: "channel"
      - CONAN_UPLOAD: "UPLOAD_URL"
      - CONAN_PIP_INSTALL: "meson"
+     - CONAN_BUILD_REQUIRES: "ninja_installer/[>=1.5]@bincrafters/stable"
 
 linux: &linux
    os: linux
