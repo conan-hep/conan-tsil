@@ -3,7 +3,7 @@ env:
      - CONAN_REFERENCE: "TSIL/1.44"
      - CONAN_USERNAME: "user"
      - CONAN_LOGIN_USERNAME: "user"
-     - CONAN_CHANNEL: "channel"
+     - CONAN_CHANNEL: "testing"
      - CONAN_UPLOAD: "UPLOAD_URL"
      - CONAN_STABLE_BRANCH_PATTERN: "release/*"
      - CONAN_UPLOAD_ONLY_WHEN_STABLE: 1
