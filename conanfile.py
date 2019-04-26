@@ -17,6 +17,10 @@ class TsilConan(ConanFile):
     generators = ["cmake", "make", "pkg_config"]
     _source_subfolder = "tsil-{}".format(version)
 
+    def configure(self):
+        if self.settings.os == "Windows":
+            raise ConanException("Windows not supported")
+
     def source(self):
         mirrors = [
             "http://www.niu.edu/spmartin/TSIL/tsil-{}.tar.gz",
