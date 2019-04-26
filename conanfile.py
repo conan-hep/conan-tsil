@@ -35,7 +35,7 @@ class TsilConan(ConanFile):
     def _get_cc(self):
         if tools.is_apple_os(self.settings.os):
             xcrun = tools.XCRun(self.settings)
-            return xcrun.find("clang")
+            return xcrun.cc()
         return self.settings.compiler
 
     def _get_march(self):
