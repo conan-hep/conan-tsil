@@ -32,19 +32,26 @@ class TsilConan(ConanFile):
         except ConanException:
             tools.get(mirrors[1].format(self.version))
 
+    def _get_cc(self):
+        if tools.is_apple_os(self.settings.os):
+            xcrun = tools.XCRun(self.settings)
+            return xcrun.find("clang")
+        return self.settings.compiler
+
+    def _get_march(self):
+        march = ''
+        if self.settings.arch == 'x86':
+            march = '-m32'
+        elif self.settings.arch == 'x86_64':
+            march = '-m64'
+        return march
+
     def build(self):
         with tools.chdir(self._source_subfolder):
-            march = ''
-
-            if self.settings.arch == 'x86':
-                march = '-m32'
-            elif self.settings.arch == 'x86_64':
-                march = '-m64'
-
             cmd = "make CC='{}' TSIL_SIZE='-D{}' TSIL_OPT='-O3 {} {}'".format(
-                self.settings.compiler,
+                self._get_cc(),
                 self.options.TSIL_SIZE,
-                march,
+                self._get_march(),
                 "-fPIC" if self.options.fPIC else "")
 
             print(cmd)
