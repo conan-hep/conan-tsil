@@ -53,6 +53,7 @@ class TsilConan(ConanFile):
         self.copy("*.so", dst="lib", keep_path=False)
         self.copy("*.dylib", dst="lib", keep_path=False)
         self.copy("*.a", dst="lib", keep_path=False)
+        self.copy("LICENSE.txt", src=self._source_subfolder, dst="licenses", keep_path=False)
         self.copy('FindTSIL.cmake', '.', '.')
 
     def package_info(self):
