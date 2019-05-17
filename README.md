@@ -2,6 +2,10 @@
 
 ## Conan package recipe for [*TSIL*](https://www.niu.edu/spmartin/TSIL/)
 
+Stephen P. Martin, David G. Robertson, *TSIL: A Program for the
+calculation of two-loop self-energy integrals*,
+[*Comput.Phys.Commun.* **174** (2006) 133-151](https://inspirehep.net/record/675010)
+[arXiv:hep-ph/0501132](https://arxiv.org/abs/hep-ph/0501132)
 
 ## For users
 
@@ -9,7 +13,7 @@
 
 TSIL can be installed with conan by running:
 
-    conan install tsil/1.44@conan/stable
+    conan install TSIL/1.44@conan/stable
 
 Alternatively a `conanfile.txt` file can be created in your project
 directory with the following content:
@@ -54,8 +58,8 @@ A complete example can be found in the `examples/` directory.
 
 The following command both runs all the steps of the conan file, and
 publishes the package to the local system cache.  This includes
-downloading dependencies from "build_requires" and "requires" , and
-then running the build() method.
+downloading dependencies from `build_requires` and `requires`, and
+then running the `build()` method.
 
     $ conan create . conan/stable
 
@@ -65,7 +69,7 @@ then running the build() method.
 | Option        | Default          | Possible Values                          |
 | ------------- |------------------|------------------------------------------|
 | fPIC          | True             |  [True, False]                           |
-| TSIL_SIZE     | "TSIL_SIZE_LONG" |  ["TSIL_SIZE_LONG", "TSIL_SIZE_DOUBLE"]  |
+| TSIL_SIZE     | TSIL_SIZE_LONG   |  [TSIL_SIZE_LONG, TSIL_SIZE_DOUBLE]      |
 
 
 ## Conan Recipe License
