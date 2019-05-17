@@ -25,3 +25,4 @@ class TsilTestConan(ConanFile):
         if not tools.cross_building(self.settings):
             with tools.chdir("bin"):
                 self.run(".%stest_cmake" % os.sep)
+                self.run(".%stest_cmake_c" % os.sep)
