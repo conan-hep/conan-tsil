@@ -48,7 +48,8 @@ class TsilConan(ConanFile):
 
     def build(self):
         with tools.chdir(self._source_subfolder):
-            cmd = "make CC='{}' TSIL_SIZE='-D{}' TSIL_OPT='-O3 {} {}'".format(
+            cmd = "make -j{} CC='{}' TSIL_SIZE='-D{}' TSIL_OPT='-O3 {} {}'".format(
+                tools.cpu_count(),
                 self._get_cc(),
                 self.options.TSIL_SIZE,
                 self._get_march(),
