@@ -12,7 +12,7 @@ class TsilConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     options = {"fPIC": [True, False],
                "TSIL_SIZE": ["TSIL_SIZE_LONG", "TSIL_SIZE_DOUBLE"]}
-    exports = ["LICENSE", "FindTSIL.cmake"]
+    exports = ["LICENSE"]
     default_options = "fPIC=True", "TSIL_SIZE=TSIL_SIZE_LONG"
     generators = ["cmake", "make", "pkg_config"]
     _source_subfolder = "tsil-{}".format(version)
@@ -66,7 +66,6 @@ class TsilConan(ConanFile):
         self.copy("*.dylib", dst="lib", keep_path=False)
         self.copy("*.a", dst="lib", keep_path=False)
         self.copy("LICENSE.txt", src=self._source_subfolder, dst="licenses", keep_path=False)
-        self.copy('FindTSIL.cmake', '.', '.')
 
     def package_info(self):
         self.cpp_info.libs = ["tsil"]
