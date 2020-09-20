@@ -1,5 +1,5 @@
 [requires]
-TSIL/1.44@conan/stable
+TSIL/1.45@conan/stable
 
 [generators]
 cmake

@@ -13,13 +13,13 @@ calculation of two-loop self-energy integrals*,
 
 TSIL can be installed with conan by running:
 
-    conan install TSIL/1.44@conan/stable
+    conan install TSIL/1.45@conan/stable
 
 Alternatively a `conanfile.txt` file can be created in your project
 directory with the following content:
 
     [requires]
-    TSIL/1.44@conan/stable
+    TSIL/1.45@conan/stable
 
     [generators]
     cmake

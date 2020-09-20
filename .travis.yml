@@ -1,6 +1,6 @@
 env:
    global:
-     - CONAN_REFERENCE: "TSIL/1.44"
+     - CONAN_REFERENCE: "TSIL/1.45"
      - CONAN_USERNAME: "user"
      - CONAN_LOGIN_USERNAME: "user"
      - CONAN_CHANNEL: "testing"

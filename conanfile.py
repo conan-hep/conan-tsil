@@ -3,7 +3,7 @@ from conans.errors import ConanException
 
 class TsilConan(ConanFile):
     name = "TSIL"
-    version = "1.44"
+    version = "1.45"
     license = "GPL-2.0-or-later"
     author = "Alexander Voigt"
     url = "https://www.niu.edu/spmartin/TSIL/"
