@@ -1,5 +1,7 @@
-from conans import ConanFile, tools
+import os
+from conans import ConanFile, CMake, tools
 from conans.errors import ConanException
+import shutil
 
 class TsilConan(ConanFile):
     name = "TSIL"
@@ -12,14 +14,10 @@ class TsilConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     options = {"fPIC": [True, False],
                "TSIL_SIZE": ["TSIL_SIZE_LONG", "TSIL_SIZE_DOUBLE"]}
-    exports = ["LICENSE"]
+    exports = ["LICENSE", "CMakeLists.txt"]
     default_options = "fPIC=True", "TSIL_SIZE=TSIL_SIZE_LONG"
     generators = ["cmake", "make", "pkg_config"]
     _source_subfolder = "tsil-{}".format(version)
-
-    def configure(self):
-        if self.settings.os == "Windows":
-            raise ConanException("Windows not supported")
 
     def source(self):
         mirrors = [
@@ -32,31 +30,12 @@ class TsilConan(ConanFile):
         except ConanException:
             tools.get(mirrors[1].format(self.version))
 
-    def _get_cc(self):
-        if tools.is_apple_os(self.settings.os):
-            xcrun = tools.XCRun(self.settings)
-            return xcrun.find("clang")
-        return self.settings.compiler
-
-    def _get_march(self):
-        march = ''
-        if self.settings.arch == 'x86':
-            march = '-m32'
-        elif self.settings.arch == 'x86_64':
-            march = '-m64'
-        return march
+        shutil.copyfile("CMakeLists.txt", "{}{}CMakeLists.txt".format(self._source_subfolder, os.sep))
 
     def build(self):
-        with tools.chdir(self._source_subfolder):
-            cmd = "make -j{} CC='{}' TSIL_SIZE='-D{}' TSIL_OPT='-O3 {} {}'".format(
-                tools.cpu_count(),
-                self._get_cc(),
-                self.options.TSIL_SIZE,
-                self._get_march(),
-                "-fPIC" if self.options.fPIC else "")
-
-            print(cmd)
-            self.run(cmd)
+        cmake = CMake(self)
+        cmake.configure(source_folder=self._source_subfolder)
+        cmake.build()
 
     def package(self):
         self.copy("*.h", dst="include", keep_path=False)
