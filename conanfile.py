@@ -33,7 +33,8 @@ class TsilConan(ConanFile):
 
     def build(self):
         cmake = CMake(self)
-        cmake.configure(source_folder=self._source_subfolder)
+        cmake.configure(defs={"TSIL_SIZE": self.options.TSIL_SIZE},
+                        source_folder=self._source_subfolder)
         cmake.build()
 
     def package(self):
